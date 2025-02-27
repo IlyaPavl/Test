@@ -5,6 +5,8 @@ final class ReviewsViewModel: NSObject {
 
     /// Замыкание, вызываемое при изменении `state`.
     var onStateChange: ((State) -> Void)?
+    /// Замыкание, вызываемое при изменении количества отзывов.
+    var onFooterUpdate: ((Int) -> Void)?
 
     private var state: State
     private let reviewsProvider: ReviewsProvider
@@ -55,7 +57,11 @@ private extension ReviewsViewModel {
         } catch {
             state.shouldLoad = true
         }
-        onStateChange?(state)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.onStateChange?(self.state)
+            self.onFooterUpdate?(self.state.items.count)
+        }
     }
 
     /// Метод, вызываемый при нажатии на кнопку "Показать полностью...".
@@ -84,7 +90,9 @@ private extension ReviewsViewModel {
         let item = ReviewItem(
             reviewText: reviewText,
             created: created,
-            onTapShowMore: showMoreReview
+            onTapShowMore: { [weak self] id in
+                self?.showMoreReview(with: id)
+            }
         )
         return item
     }

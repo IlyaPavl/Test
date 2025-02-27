@@ -39,8 +39,14 @@ private extension ReviewsViewController {
     }
 
     func setupViewModel() {
-        viewModel.onStateChange = { [weak reviewsView] _ in
-            reviewsView?.tableView.reloadData()
+        viewModel.onStateChange = { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.reviewsView.tableView.reloadData()
+            }
+        }
+        
+        viewModel.onFooterUpdate = { [weak self] count in
+            self?.reviewsView.updateFooter(with: count)
         }
     }
 
