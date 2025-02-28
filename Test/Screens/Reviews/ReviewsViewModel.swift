@@ -76,10 +76,10 @@ private extension ReviewsViewModel {
             guard let self = self else { return }
             guard !self.state.items.isEmpty else { return }
             self.onStateChange?(self.state)
-            self.onFooterUpdate?(self.state.items.count)
             if wasRefreshing {
                 self.onRefresh?()
             }
+            self.onFooterUpdate?(self.state.items.count)
         }
     }
 

@@ -40,6 +40,10 @@ extension ReviewsView {
         }
     }
     
+    func prepareFooterForReload() {
+        footerLabel.text = nil
+    }
+    
     func endRefreshing() {
         refreshControl.endRefreshing()
     }

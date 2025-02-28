@@ -28,6 +28,7 @@
 		21ED1F622D69CBCD0012D6F6 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ED1F612D69CBCD0012D6F6 /* RootView.swift */; };
 		21ED1F652D69D0340012D6F6 /* ReviewsScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ED1F642D69D0340012D6F6 /* ReviewsScreenFactory.swift */; };
 		48B6A0722D71B40100F33BBB /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 48B6A0712D71B40100F33BBB /* Localizable.xcstrings */; };
+		48B6A0EB2D71F2A900F33BBB /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6A0EA2D71F2A700F33BBB /* CustomActivityIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		21ED1F612D69CBCD0012D6F6 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		21ED1F642D69D0340012D6F6 /* ReviewsScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsScreenFactory.swift; sourceTree = "<group>"; };
 		48B6A0712D71B40100F33BBB /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = Localizable.xcstrings; path = Test/Localizable.xcstrings; sourceTree = SOURCE_ROOT; };
+		48B6A0EA2D71F2A700F33BBB /* CustomActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 				21B841682D47BC7F0085DAA2 /* Model */,
 				216668742D48EA59009AAA76 /* Constants */,
 				21B82E222D47B0640085DAA2 /* Extensions */,
+				48B6A0E92D71F29700F33BBB /* Helpers */,
 				21B82E242D47B0640085DAA2 /* Resources */,
 			);
 			path = Test;
@@ -188,6 +191,14 @@
 				21ED1F612D69CBCD0012D6F6 /* RootView.swift */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		48B6A0E92D71F29700F33BBB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				48B6A0EA2D71F2A700F33BBB /* CustomActivityIndicatorView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +287,7 @@
 				21B8416B2D47BFA10085DAA2 /* Reviews.swift in Sources */,
 				21B82E302D47B0640085DAA2 /* ReviewsViewController.swift in Sources */,
 				2166A0F42D4A5B25009AAA76 /* ReviewsView.swift in Sources */,
+				48B6A0EB2D71F2A900F33BBB /* CustomActivityIndicatorView.swift in Sources */,
 				216668732D48E89A009AAA76 /* Colors.swift in Sources */,
 				21B841712D47C5F00085DAA2 /* TableCellConfig.swift in Sources */,
 				21ED1F652D69D0340012D6F6 /* ReviewsScreenFactory.swift in Sources */,

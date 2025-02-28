@@ -4,6 +4,7 @@ final class ReviewsViewController: UIViewController {
 
     private lazy var reviewsView = makeReviewsView()
     private let viewModel: ReviewsViewModel
+    private let activityIndicator = CustomActivityIndicatorView()
 
     init(viewModel: ReviewsViewModel) {
         self.viewModel = viewModel
@@ -21,6 +22,7 @@ final class ReviewsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupActivityIndicator()
         setupViewModel()
         viewModel.getReviews()
     }
@@ -42,23 +44,45 @@ private extension ReviewsViewController {
         reviewsView.refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         
         viewModel.onStateChange = { [weak self] _ in
-            DispatchQueue.main.async {
-                self?.reviewsView.tableView.reloadData()
-            }
+            self?.hideActivityIndicator()
+            self?.reviewsView.tableView.reloadData()
+        }
+        
+        viewModel.onRefresh = { [weak self] in
+            self?.reviewsView.refreshControl.endRefreshing()
         }
         
         viewModel.onFooterUpdate = { [weak self] count in
             self?.reviewsView.updateFooter(with: count)
         }
-        
-        viewModel.onRefresh = { [weak self] in
-            DispatchQueue.main.async {
-                self?.reviewsView.refreshControl.endRefreshing()
-            }
-        }
     }
     
     @objc private func refreshData() {
+        reviewsView.prepareFooterForReload()
         viewModel.refreshReviews()
+    }
+    
+    func setupActivityIndicator() {
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(activityIndicator)
+
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            activityIndicator.widthAnchor.constraint(equalToConstant: 50),
+            activityIndicator.heightAnchor.constraint(equalToConstant: 50)
+        ])
+
+        showActivityIndicator()
+    }
+    
+    private func showActivityIndicator() {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+    }
+
+    private func hideActivityIndicator() {
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
     }
 }
