@@ -29,6 +29,9 @@
 		21ED1F652D69D0340012D6F6 /* ReviewsScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ED1F642D69D0340012D6F6 /* ReviewsScreenFactory.swift */; };
 		48B6A0722D71B40100F33BBB /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 48B6A0712D71B40100F33BBB /* Localizable.xcstrings */; };
 		48B6A0EB2D71F2A900F33BBB /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6A0EA2D71F2A700F33BBB /* CustomActivityIndicatorView.swift */; };
+		48B6A14F2D71FB8900F33BBB /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6A14E2D71FB8900F33BBB /* WebImageView.swift */; };
+		48B6A1B42D72001500F33BBB /* AttachmentCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6A1B32D72001400F33BBB /* AttachmentCollectionView.swift */; };
+		48B6A1B62D72002800F33BBB /* AttachmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6A1B52D72002400F33BBB /* AttachmentCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +58,9 @@
 		21ED1F642D69D0340012D6F6 /* ReviewsScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsScreenFactory.swift; sourceTree = "<group>"; };
 		48B6A0712D71B40100F33BBB /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = Localizable.xcstrings; path = Test/Localizable.xcstrings; sourceTree = SOURCE_ROOT; };
 		48B6A0EA2D71F2A700F33BBB /* CustomActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorView.swift; sourceTree = "<group>"; };
+		48B6A14E2D71FB8900F33BBB /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
+		48B6A1B32D72001400F33BBB /* AttachmentCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentCollectionView.swift; sourceTree = "<group>"; };
+		48B6A1B52D72002400F33BBB /* AttachmentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +169,7 @@
 				21B82E352D47B0D80085DAA2 /* ReviewsProvider.swift */,
 				21667B7F2D4A25B2009AAA76 /* RatingRenderer.swift */,
 				216668752D48F39E009AAA76 /* Cells */,
+				48B6A1B22D71FFF100F33BBB /* AttachmentCollection */,
 			);
 			path = Reviews;
 			sourceTree = "<group>";
@@ -196,9 +203,19 @@
 		48B6A0E92D71F29700F33BBB /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				48B6A14E2D71FB8900F33BBB /* WebImageView.swift */,
 				48B6A0EA2D71F2A700F33BBB /* CustomActivityIndicatorView.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		48B6A1B22D71FFF100F33BBB /* AttachmentCollection */ = {
+			isa = PBXGroup;
+			children = (
+				48B6A1B32D72001400F33BBB /* AttachmentCollectionView.swift */,
+				48B6A1B52D72002400F33BBB /* AttachmentCollectionViewCell.swift */,
+			);
+			path = AttachmentCollection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,12 +299,15 @@
 				21667B802D4A25B2009AAA76 /* RatingRenderer.swift in Sources */,
 				216668712D48E4B2009AAA76 /* NSAttributedString+Ext.swift in Sources */,
 				21B82E362D47B0D80085DAA2 /* ReviewsProvider.swift in Sources */,
+				48B6A1B62D72002800F33BBB /* AttachmentCollectionViewCell.swift in Sources */,
 				21ED1F602D69C85E0012D6F6 /* RootViewController.swift in Sources */,
 				21B82E342D47B0AA0085DAA2 /* ReviewsViewModel.swift in Sources */,
+				48B6A1B42D72001500F33BBB /* AttachmentCollectionView.swift in Sources */,
 				21B8416B2D47BFA10085DAA2 /* Reviews.swift in Sources */,
 				21B82E302D47B0640085DAA2 /* ReviewsViewController.swift in Sources */,
 				2166A0F42D4A5B25009AAA76 /* ReviewsView.swift in Sources */,
 				48B6A0EB2D71F2A900F33BBB /* CustomActivityIndicatorView.swift in Sources */,
+				48B6A14F2D71FB8900F33BBB /* WebImageView.swift in Sources */,
 				216668732D48E89A009AAA76 /* Colors.swift in Sources */,
 				21B841712D47C5F00085DAA2 /* TableCellConfig.swift in Sources */,
 				21ED1F652D69D0340012D6F6 /* ReviewsScreenFactory.swift in Sources */,
