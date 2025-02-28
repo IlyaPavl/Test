@@ -39,6 +39,8 @@ private extension ReviewsViewController {
     }
 
     func setupViewModel() {
+        reviewsView.refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        
         viewModel.onStateChange = { [weak self] _ in
             DispatchQueue.main.async {
                 self?.reviewsView.tableView.reloadData()
@@ -48,6 +50,15 @@ private extension ReviewsViewController {
         viewModel.onFooterUpdate = { [weak self] count in
             self?.reviewsView.updateFooter(with: count)
         }
+        
+        viewModel.onRefresh = { [weak self] in
+            DispatchQueue.main.async {
+                self?.reviewsView.refreshControl.endRefreshing()
+            }
+        }
     }
-
+    
+    @objc private func refreshData() {
+        viewModel.refreshReviews()
+    }
 }

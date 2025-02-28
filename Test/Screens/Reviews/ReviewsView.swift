@@ -8,6 +8,7 @@ final class ReviewsView: UIView {
 
     let tableView = UITableView()
     private let footerLabel = UILabel()
+    let refreshControl = UIRefreshControl()
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -23,14 +24,24 @@ final class ReviewsView: UIView {
         tableView.frame = bounds.inset(by: safeAreaInsets)
     }
     
+}
+
+// MARK: - Public
+extension ReviewsView {
     func updateFooter(with count: Int) {
-        footerLabel.text = "\(count) отзывов"
+        footerLabel.text = String.localizedStringWithFormat(
+            NSLocalizedString("%lld numberOfReviews", comment: ""),count
+        )
         
         if let footerView = tableView.tableFooterView {
             let newHeight = footerLabel.intrinsicContentSize.height + Constants.footerHeight
             footerView.frame.size.height = newHeight
             tableView.tableFooterView = footerView
         }
+    }
+    
+    func endRefreshing() {
+        refreshControl.endRefreshing()
     }
 }
 
@@ -49,6 +60,7 @@ private extension ReviewsView {
         tableView.allowsSelection = false
         tableView.register(ReviewCell.self, forCellReuseIdentifier: ReviewCellConfig.reuseId)
         tableView.tableFooterView = makeFooterView()
+        tableView.refreshControl = refreshControl
     }
     
     func makeFooterView() -> UIView {

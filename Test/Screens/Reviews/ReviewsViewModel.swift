@@ -5,8 +5,11 @@ final class ReviewsViewModel: NSObject {
 
     /// Замыкание, вызываемое при изменении `state`.
     var onStateChange: ((State) -> Void)?
-    /// Замыкание, вызываемое при изменении количества отзывов.
+    /// Замыкание, вызываемое для обновления footerView с количеством отзывов.
     var onFooterUpdate: ((Int) -> Void)?
+    /// Замыкание, вызываемое для pull-to-refresh.
+    var onRefresh: (() -> Void)?
+    private var isRefreshing = false
 
     private var state: State
     private let reviewsProvider: ReviewsProvider
@@ -39,6 +42,14 @@ extension ReviewsViewModel {
         state.shouldLoad = false
         reviewsProvider.getReviews(offset: state.offset, completion: gotReviews)
     }
+    
+    func refreshReviews() {
+        isRefreshing = true
+        state.items = []
+        state.offset = 0
+        state.shouldLoad = true
+        getReviews()
+    }
 
 }
 
@@ -57,10 +68,18 @@ private extension ReviewsViewModel {
         } catch {
             state.shouldLoad = true
         }
+        
+        let wasRefreshing = isRefreshing
+        isRefreshing = false
+        
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
+            guard !self.state.items.isEmpty else { return }
             self.onStateChange?(self.state)
             self.onFooterUpdate?(self.state.items.count)
+            if wasRefreshing {
+                self.onRefresh?()
+            }
         }
     }
 
@@ -85,6 +104,12 @@ private extension ReviewsViewModel {
     typealias ReviewItem = ReviewCellConfig
 
     func makeReviewItem(_ review: Review) -> ReviewItem {
+        let avatar = UIImage(named: "l5w5aIHioYc")!
+        let username = NSAttributedString(
+            string: "\(review.firstName) \(review.lastName)",
+            attributes: [.font: UIFont.username]
+        )
+        let ratingImage = ratingRenderer.ratingImage(review.rating)
         let reviewText = review.text.attributed(font: .text)
         let created = review.created.attributed(font: .created, color: .created)
         let item = ReviewItem(
@@ -92,7 +117,10 @@ private extension ReviewsViewModel {
             created: created,
             onTapShowMore: { [weak self] id in
                 self?.showMoreReview(with: id)
-            }
+            },
+            username: username,
+            avatar: avatar,
+            ratingImage: ratingImage
         )
         return item
     }
@@ -108,6 +136,9 @@ extension ReviewsViewModel: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard indexPath.row < state.items.count else {
+            return UITableViewCell()
+        }
         let config = state.items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: config.reuseId, for: indexPath)
         config.update(cell: cell)
@@ -121,7 +152,8 @@ extension ReviewsViewModel: UITableViewDataSource {
 extension ReviewsViewModel: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        state.items[indexPath.row].height(with: tableView.bounds.size)
+        guard indexPath.row < state.items.count else { return 0 }
+        return state.items[indexPath.row].height(with: tableView.bounds.size)
     }
 
     /// Метод дозапрашивает отзывы, если до конца списка отзывов осталось два с половиной экрана по высоте.
