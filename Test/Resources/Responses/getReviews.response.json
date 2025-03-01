@@ -6,7 +6,14 @@
             "last_name": "Петров",
             "rating": 5,
             "text": "Кроссовки хорошие. Удобные. Как по мне сшиты.",
-            "created": "1 час назад"
+            "created": "1 час назад",
+            "photo_urls": [
+                "https://images.dog.ceo//breeds//maltese//n02085936_5435.jpg",
+                "https://images.dog.ceo//breeds//vizsla//n02100583_6740.jpg",
+                "https://images.dog.ceo//breeds//spaniel-cocker//n02102318_8250.jpg",
+                "https://images.dog.ceo//breeds//spitz-japanese//beet-005.jpg",
+                "https://images.dog.ceo//breeds//whippet//n02091134_7736.jpg"
+            ]
         },
         {
             "first_name": "Екатерина",
@@ -20,7 +27,10 @@
             "last_name": "Петрова",
             "rating": 4,
             "text": "Прошла по снегу 30 метров, 5 раз упала. Спасибо мужу, поддерживал. Возврат, к сожалению.",
-            "created": "35 минут назад"
+            "created": "35 минут назад",
+            "photo_urls": [
+                "https://images.dog.ceo//breeds//spaniel-cocker//n02102318_8250.jpg"
+            ]
         },
         {
             "first_name": "Илья",
@@ -48,7 +58,10 @@
             "last_name": "Петров",
             "rating": 2,
             "text": "",
-            "created": "вчера в 12:39"
+            "created": "вчера в 12:39",
+            "photo_urls": [
+                "https://images.dog.ceo//breeds//spitz-japanese//beet-005.jpg"
+            ]
         },
 
 
@@ -57,7 +70,11 @@
             "last_name": "Петров",
             "rating": 5,
             "text": "Кроссовки хорошие. Удобные. Как по мне сшиты.",
-            "created": "1 час назад"
+            "created": "1 час назад",
+            "photo_urls": [
+                "https://images.dog.ceo//breeds//maltese//n02085936_5435.jpg",
+                "https://images.dog.ceo//breeds//vizsla//n02100583_6740.jpg"
+            ]
         },
         {
             "first_name": "Екатерина",
@@ -71,7 +88,10 @@
             "last_name": "Петрова",
             "rating": 4,
             "text": "Прошла по снегу 30 метров, 5 раз упала. Спасибо мужу, поддерживал. Возврат, к сожалению.",
-            "created": "35 минут назад"
+            "created": "35 минут назад",
+            "photo_urls": [
+                "https://images.dog.ceo//breeds//spaniel-cocker//n02102318_8250.jpg"
+            ]
         },
         {
             "first_name": "Илья",
@@ -99,7 +119,10 @@
             "last_name": "Петров",
             "rating": 2,
             "text": "",
-            "created": "вчера в 12:39"
+            "created": "вчера в 12:39",
+            "photo_urls": [
+                "https://images.dog.ceo//breeds//spitz-japanese//beet-005.jpg"
+            ]
         },
 
 
@@ -108,7 +131,11 @@
             "last_name": "Петров",
             "rating": 5,
             "text": "Кроссовки хорошие. Удобные. Как по мне сшиты.",
-            "created": "1 час назад"
+            "created": "1 час назад",
+            "photo_urls": [
+                "https://images.dog.ceo//breeds//maltese//n02085936_5435.jpg",
+                "https://images.dog.ceo//breeds//vizsla//n02100583_6740.jpg"
+            ]
         },
         {
             "first_name": "Екатерина",
@@ -122,7 +149,10 @@
             "last_name": "Петрова",
             "rating": 4,
             "text": "Прошла по снегу 30 метров, 5 раз упала. Спасибо мужу, поддерживал. Возврат, к сожалению.",
-            "created": "35 минут назад"
+            "created": "35 минут назад",
+            "photo_urls": [
+                "https://images.dog.ceo//breeds//spaniel-cocker//n02102318_8250.jpg"
+            ]
         },
         {
             "first_name": "Илья",
@@ -150,7 +180,10 @@
             "last_name": "Петров",
             "rating": 2,
             "text": "",
-            "created": "вчера в 12:39"
+            "created": "вчера в 12:39",
+            "photo_urls": [
+                "https://images.dog.ceo//breeds//spitz-japanese//beet-005.jpg"
+            ]
         },
     ]
 }

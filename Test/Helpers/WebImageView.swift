@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Класс для асинхронной загрузки изображения и кэширования
 class WebImageView: UIImageView {
     
     private var currentURLString: String?

@@ -27,8 +27,12 @@ private extension RootView {
     }
 
     func setupReviewsButton() {
-        reviewsButton.setTitle("Отзывы", for: .normal)
-        reviewsButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        var config = UIButton.Configuration.plain()
+        config.title = "Отзывы"
+        config.image = UIImage(systemName: "chevron.left")
+        config.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
+        reviewsButton.configuration = config
+        
         reviewsButton.addAction(UIAction { [unowned self] _ in onTapReviews() }, for: .touchUpInside)
         reviewsButton.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         reviewsButton.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)

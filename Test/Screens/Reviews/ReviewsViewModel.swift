@@ -43,6 +43,7 @@ extension ReviewsViewModel {
         reviewsProvider.getReviews(offset: state.offset, completion: gotReviews)
     }
     
+    /// Метод для обновления данных при pull-to-refresh
     func refreshReviews() {
         isRefreshing = true
         state.items = []
@@ -112,6 +113,7 @@ private extension ReviewsViewModel {
         let ratingImage = ratingRenderer.ratingImage(review.rating)
         let reviewText = review.text.attributed(font: .text)
         let created = review.created.attributed(font: .created, color: .created)
+        let photoURLs = review.photoURLs
         let item = ReviewItem(
             reviewText: reviewText,
             created: created,
@@ -120,7 +122,8 @@ private extension ReviewsViewModel {
             },
             username: username,
             avatar: avatar,
-            ratingImage: ratingImage
+            ratingImage: ratingImage,
+            attachedImagesURLs: photoURLs
         )
         return item
     }

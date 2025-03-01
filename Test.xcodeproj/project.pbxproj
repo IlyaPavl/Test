@@ -27,11 +27,12 @@
 		21ED1F602D69C85E0012D6F6 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ED1F5F2D69C85E0012D6F6 /* RootViewController.swift */; };
 		21ED1F622D69CBCD0012D6F6 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ED1F612D69CBCD0012D6F6 /* RootView.swift */; };
 		21ED1F652D69D0340012D6F6 /* ReviewsScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ED1F642D69D0340012D6F6 /* ReviewsScreenFactory.swift */; };
+		4861D7EE2D735D5800D60EBE /* AttachmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4861D7ED2D735D5800D60EBE /* AttachmentsView.swift */; };
 		48B6A0722D71B40100F33BBB /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 48B6A0712D71B40100F33BBB /* Localizable.xcstrings */; };
 		48B6A0EB2D71F2A900F33BBB /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6A0EA2D71F2A700F33BBB /* CustomActivityIndicatorView.swift */; };
 		48B6A14F2D71FB8900F33BBB /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6A14E2D71FB8900F33BBB /* WebImageView.swift */; };
-		48B6A1B42D72001500F33BBB /* AttachmentCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6A1B32D72001400F33BBB /* AttachmentCollectionView.swift */; };
-		48B6A1B62D72002800F33BBB /* AttachmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6A1B52D72002400F33BBB /* AttachmentCollectionViewCell.swift */; };
+		48B6A1B42D72001500F33BBB /* AttachmentsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6A1B32D72001400F33BBB /* AttachmentsContentView.swift */; };
+		48B6A1B62D72002800F33BBB /* AttachmentsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6A1B52D72002400F33BBB /* AttachmentsConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,11 +57,12 @@
 		21ED1F5F2D69C85E0012D6F6 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		21ED1F612D69CBCD0012D6F6 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		21ED1F642D69D0340012D6F6 /* ReviewsScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsScreenFactory.swift; sourceTree = "<group>"; };
+		4861D7ED2D735D5800D60EBE /* AttachmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentsView.swift; sourceTree = "<group>"; };
 		48B6A0712D71B40100F33BBB /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = Localizable.xcstrings; path = Test/Localizable.xcstrings; sourceTree = SOURCE_ROOT; };
 		48B6A0EA2D71F2A700F33BBB /* CustomActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorView.swift; sourceTree = "<group>"; };
 		48B6A14E2D71FB8900F33BBB /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
-		48B6A1B32D72001400F33BBB /* AttachmentCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentCollectionView.swift; sourceTree = "<group>"; };
-		48B6A1B52D72002400F33BBB /* AttachmentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentCollectionViewCell.swift; sourceTree = "<group>"; };
+		48B6A1B32D72001400F33BBB /* AttachmentsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentsContentView.swift; sourceTree = "<group>"; };
+		48B6A1B52D72002400F33BBB /* AttachmentsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentsConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,8 +214,9 @@
 		48B6A1B22D71FFF100F33BBB /* AttachmentCollection */ = {
 			isa = PBXGroup;
 			children = (
-				48B6A1B32D72001400F33BBB /* AttachmentCollectionView.swift */,
-				48B6A1B52D72002400F33BBB /* AttachmentCollectionViewCell.swift */,
+				4861D7ED2D735D5800D60EBE /* AttachmentsView.swift */,
+				48B6A1B32D72001400F33BBB /* AttachmentsContentView.swift */,
+				48B6A1B52D72002400F33BBB /* AttachmentsConfig.swift */,
 			);
 			path = AttachmentCollection;
 			sourceTree = "<group>";
@@ -295,14 +298,15 @@
 				21B82E392D47B1320085DAA2 /* Review.swift in Sources */,
 				21B8416D2D47C0E20085DAA2 /* ReviewsViewModelState.swift in Sources */,
 				21B82E2E2D47B0640085DAA2 /* ReviewCell.swift in Sources */,
+				4861D7EE2D735D5800D60EBE /* AttachmentsView.swift in Sources */,
 				21ED1F622D69CBCD0012D6F6 /* RootView.swift in Sources */,
 				21667B802D4A25B2009AAA76 /* RatingRenderer.swift in Sources */,
 				216668712D48E4B2009AAA76 /* NSAttributedString+Ext.swift in Sources */,
 				21B82E362D47B0D80085DAA2 /* ReviewsProvider.swift in Sources */,
-				48B6A1B62D72002800F33BBB /* AttachmentCollectionViewCell.swift in Sources */,
+				48B6A1B62D72002800F33BBB /* AttachmentsConfig.swift in Sources */,
 				21ED1F602D69C85E0012D6F6 /* RootViewController.swift in Sources */,
 				21B82E342D47B0AA0085DAA2 /* ReviewsViewModel.swift in Sources */,
-				48B6A1B42D72001500F33BBB /* AttachmentCollectionView.swift in Sources */,
+				48B6A1B42D72001500F33BBB /* AttachmentsContentView.swift in Sources */,
 				21B8416B2D47BFA10085DAA2 /* Reviews.swift in Sources */,
 				21B82E302D47B0640085DAA2 /* ReviewsViewController.swift in Sources */,
 				2166A0F42D4A5B25009AAA76 /* ReviewsView.swift in Sources */,

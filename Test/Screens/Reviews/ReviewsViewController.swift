@@ -1,6 +1,10 @@
 import UIKit
 
 final class ReviewsViewController: UIViewController {
+    
+    private enum Constants {
+        static let activityIndicatorSize: CGFloat = 50
+    }
 
     private lazy var reviewsView = makeReviewsView()
     private let viewModel: ReviewsViewModel
@@ -69,8 +73,8 @@ private extension ReviewsViewController {
         NSLayoutConstraint.activate([
             activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            activityIndicator.widthAnchor.constraint(equalToConstant: 50),
-            activityIndicator.heightAnchor.constraint(equalToConstant: 50)
+            activityIndicator.widthAnchor.constraint(equalToConstant: Constants.activityIndicatorSize),
+            activityIndicator.heightAnchor.constraint(equalToConstant: Constants.activityIndicatorSize)
         ])
 
         showActivityIndicator()

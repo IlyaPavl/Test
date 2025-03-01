@@ -1,6 +1,7 @@
 import UIKit
 
 final class ReviewsView: UIView {
+    
     private enum Constants {
         static let footerHeight: CGFloat = 16
         static let footerPadding: CGFloat = 8
@@ -28,6 +29,8 @@ final class ReviewsView: UIView {
 
 // MARK: - Public
 extension ReviewsView {
+    
+    /// Метод для обновления значения в footerLabel у footerView
     func updateFooter(with count: Int) {
         footerLabel.text = String.localizedStringWithFormat(
             NSLocalizedString("%lld numberOfReviews", comment: ""),count
@@ -67,6 +70,7 @@ private extension ReviewsView {
         tableView.refreshControl = refreshControl
     }
     
+    /// Конфигурация footerLabel
     func makeFooterView() -> UIView {
         let footerView = UIView()
         

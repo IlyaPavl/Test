@@ -22,6 +22,8 @@ struct ReviewCellConfig {
     let avatar: UIImage
     /// Изображение рейтинга.
     let ratingImage: UIImage
+    /// Коллекция изображений, прикрепленных к отзывам
+    let attachedImagesURLs: [String]?
 
     /// Объект, хранящий посчитанные фреймы для ячейки отзыва.
     fileprivate let layout = ReviewCellLayout()
@@ -39,6 +41,9 @@ extension ReviewCellConfig: TableCellConfig {
         cell.avatarView.image = avatar
         cell.usernameLabel.attributedText = username
         cell.ratingImageView.image = ratingImage
+        if let attachedImagesURLs = attachedImagesURLs {
+            cell.attachmentsView.update(with: attachedImagesURLs)
+        }
         cell.reviewTextLabel.attributedText = reviewText
         cell.reviewTextLabel.numberOfLines = maxLines
         cell.createdLabel.attributedText = created
@@ -72,6 +77,7 @@ final class ReviewCell: UITableViewCell {
     fileprivate let avatarView = UIImageView()
     fileprivate let usernameLabel = UILabel()
     fileprivate let ratingImageView = UIImageView()
+    fileprivate let attachmentsView = AttachmentsView()
     fileprivate let reviewTextLabel = UILabel()
     fileprivate let createdLabel = UILabel()
     fileprivate let showMoreButton = UIButton()
@@ -91,11 +97,20 @@ final class ReviewCell: UITableViewCell {
         avatarView.frame = layout.avatarViewFrame
         usernameLabel.frame = layout.usernameLabelFrame
         ratingImageView.frame = layout.ratingImageViewFrame
+        attachmentsView.frame = layout.attachmentsFrame
         reviewTextLabel.frame = layout.reviewTextLabelFrame
         createdLabel.frame = layout.createdLabelFrame
         showMoreButton.frame = layout.showMoreButtonFrame
     }
-
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        usernameLabel.attributedText = nil
+        ratingImageView.image = nil
+        attachmentsView.update(with: [])
+        reviewTextLabel.text = nil
+        createdLabel.attributedText = nil
+    }
 }
 
 // MARK: - Private
@@ -106,6 +121,7 @@ private extension ReviewCell {
         setupAvatarView()
         setupUsernameLabel()
         setupRatingImageView()
+        setupAttachedImagesCollection()
         setupReviewTextLabel()
         setupCreatedLabel()
         setupShowMoreButton()
@@ -126,6 +142,10 @@ private extension ReviewCell {
 
     func setupRatingImageView() {
         contentView.addSubview(ratingImageView)
+    }
+    
+    func setupAttachedImagesCollection() {
+        contentView.addSubview(attachmentsView)
     }
 
     func setupReviewTextLabel() {
@@ -170,6 +190,7 @@ private final class ReviewCellLayout {
     private(set) var avatarViewFrame = CGRect.zero
     private(set) var usernameLabelFrame = CGRect.zero
     private(set) var ratingImageViewFrame = CGRect.zero
+    private(set) var attachmentsFrame = CGRect.zero
     private(set) var reviewTextLabelFrame = CGRect.zero
     private(set) var showMoreButtonFrame = CGRect.zero
     private(set) var createdLabelFrame = CGRect.zero
@@ -227,6 +248,21 @@ private final class ReviewCellLayout {
         )
         
         maxY = ratingImageViewFrame.maxY + ratingToTextSpacing
+        
+        // Расположение вложений
+        if let attachmentURLs = config.attachedImagesURLs {
+            if !attachmentURLs.isEmpty {
+                attachmentsFrame = CGRect(
+                    x: newXCoordinate,
+                    y: maxY,
+                    width: width - newXCoordinate,
+                    height: Self.photoSize.height
+                )
+                maxY = attachmentsFrame.maxY + photosToTextSpacing
+            }
+        } else {
+            attachmentsFrame = .zero
+        }
 
         if !config.reviewText.isEmpty() {
             // Высота текста с текущим ограничением по количеству строк.
